@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Counter.scss"
+import classes from "./Counter.module.scss"
 interface CounterProps {
     
 }
@@ -9,7 +9,7 @@ const Counter = () => {
 
     const increment = () => setCount(count + 1)
     return ( 
-        <div>
+        <div className={classes.btn}>
             <button onClick={increment}>increment</button>
             <h1>{count}</h1>
         </div>
