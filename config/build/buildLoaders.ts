@@ -9,6 +9,11 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         exclude: /node_modules/,
     }
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
     const cssLoaders = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -28,9 +33,21 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
             "sass-loader",
         ],
     }
+
+
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+    }
     //Если не используем TS, то нужен babel-loader
     return [
+        svgLoader,
+        fileLoader,
         typeScriptLoader,
-        cssLoaders
+        cssLoaders,
     ]
 }
