@@ -1,9 +1,9 @@
 import './styles/index.scss'
 import { AppRouter } from 'app/providers/router';
-import { Link } from 'react-router-dom';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
 
 
 const App = () => {
@@ -13,7 +13,11 @@ const App = () => {
         <div className={classNames('app', {}, [theme])}>
 
             <Navbar />
-            <AppRouter />
+            <div className="content-page">
+                <Sidebar />
+                <AppRouter />
+            </div>
+
         </div>
     );
 }
