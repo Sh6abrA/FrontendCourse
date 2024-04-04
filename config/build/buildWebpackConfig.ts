@@ -3,7 +3,6 @@ import {buildPlugins} from "./buildPlugins";
 import {buildLoaders} from "./buildLoaders";
 import {buildResolves} from "./buildResolves";
 import webpack from "webpack";
-import path from "path";
 import { buildDevServer } from "./buildDevServer";
 
 

@@ -4,9 +4,6 @@ import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 
-interface NavbarProps {
-    classNames?: string
-}
 
 export const Navbar = () => {
     return (
