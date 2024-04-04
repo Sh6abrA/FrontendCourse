@@ -3,27 +3,6 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-    const babelLoader = {
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: "babel-loader",
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['ru', 'en'],
-                            keyAsDefaultValue: true
-                        }
-                    ]
-                ]
-            }
-        }
-    }
-
-
     const typeScriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -59,16 +38,15 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
-            {
-                loader: 'file-loader',
-            },
+          {
+            loader: 'file-loader',
+          },
         ],
     }
     //Если не используем TS, то нужен babel-loader
     return [
-        fileLoader,
         svgLoader,
-        babelLoader,
+        fileLoader,
         typeScriptLoader,
         cssLoaders,
     ]
