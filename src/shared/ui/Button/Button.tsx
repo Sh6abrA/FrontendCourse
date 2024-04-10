@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 import { FC } from 'react';
