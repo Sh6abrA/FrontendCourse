@@ -7,7 +7,8 @@ module.exports = {
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
     ],
     "overrides": [
         {
@@ -15,10 +16,14 @@ module.exports = {
                 "node": true
             },
             "files": [
-                ".eslintrc.{js,cjs}"
+                ".eslintrc.{js,cjs}",
+                '**/src/**/*.test.{ts,tsx}'
             ],
             "parserOptions": {
                 "sourceType": "script"
+            },
+            rules: {
+                'i18next/no-literal-string': 'off'
             }
         }
     ],
@@ -38,5 +43,5 @@ module.exports = {
         "react/no-deprecated": "off",
         "@typescript-eslint/ban-ts-comment": "off",
         "i18next/no-literal-string": ['error', {markupOnly: true}]
-    }
+    },
 }
