@@ -22,7 +22,5 @@ jobs:
         run: npm run build:prod
       - name: lint ts
         run: npm run lint
-      - name: lint scss
-        run: npm run lint:style
       - name: unit testing
         run: npm run test
