@@ -8,6 +8,6 @@ describe('PageError', () => {
         renderWithTranslation(
             <PageError/>
         )
-        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        expect(screen.getByTestId('page-error')).toBeInTheDocument();
     });
 })
