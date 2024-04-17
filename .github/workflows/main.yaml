@@ -22,5 +22,7 @@ jobs:
         run: npm run build:prod
       - name: lint ts
         run: npm run lint
+        if: always()
       - name: unit testing
         run: npm run test
+        if: always()
