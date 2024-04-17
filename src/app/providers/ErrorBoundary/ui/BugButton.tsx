@@ -1,4 +1,4 @@
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 
 
@@ -14,7 +14,7 @@ export const BugButton = () => {
     },[error])
     return (
         // eslint-disable-next-line i18next/no-literal-string
-        <Button onClick={onThrow} theme={ThemeButton.OUTLINE}>
+        <Button onClick={onThrow} theme={ButtonTheme.OUTLINE}>
             throw Error
         </Button>
     );

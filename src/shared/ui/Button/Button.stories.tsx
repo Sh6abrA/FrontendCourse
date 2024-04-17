@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button, ThemeButton } from './Button';
+import { Button, ButtonTheme } from './Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Clear: Story = {
   args: {
-    theme: ThemeButton.CLEAR,
+    theme: ButtonTheme.CLEAR,
     children: 'Text',
   }
 };
