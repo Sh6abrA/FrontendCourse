@@ -8,7 +8,7 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
     ],
     "overrides": [
         {
@@ -35,13 +35,16 @@ module.exports = {
     "plugins": [
         "@typescript-eslint",
         "react",
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     "rules": {
         "no-unused-vars": [1],
         "react/react-in-jsx-scope": "off",
         "react/no-deprecated": "off",
         "@typescript-eslint/ban-ts-comment": "off",
-        "i18next/no-literal-string": ['error', {markupOnly: true}]
+        "i18next/no-literal-string": ['error', {markupOnly: true}],
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
     },
 }
