@@ -1,5 +1,4 @@
 import { AppRouter } from 'app/providers/router';
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { Suspense } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -8,11 +7,9 @@ import { Sidebar } from 'widgets/Sidebar';
 
 
 const App = () => {
-    const { theme } = useTheme();
-
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app', {}, [])}>
             <Suspense fallback=''>
                 <Navbar />
                 <div className="content-page">
