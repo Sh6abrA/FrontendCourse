@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { loginActions } from '../../model/slice/loginSlice';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 
 interface LoginFormProps {
     className?: string
@@ -15,7 +16,7 @@ interface LoginFormProps {
 export const LoginForm = memo(function LoginForm({ className }: LoginFormProps) {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const loginForm = useSelector(getLoginState);
+    const {username, password} = useSelector(getLoginState);
 
 
     const onChangeUsername = useCallback((value: string) => {
@@ -24,6 +25,9 @@ export const LoginForm = memo(function LoginForm({ className }: LoginFormProps) 
     const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch]);
+    const onLoginClick = useCallback(() => {
+        dispatch(loginByUsername({ username, password }));
+    }, [dispatch, username, password]);
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
@@ -33,16 +37,16 @@ export const LoginForm = memo(function LoginForm({ className }: LoginFormProps) 
                 placeholder={t('Введите username')}
                 type="text"
                 className={cls.input}
-                value={loginForm.username}
+                value={username}
             />
             <Input
                 onChange={onChangePassword}
                 placeholder={t('Введите password')}
                 type="text"
                 className={cls.input}
-                value={loginForm.password}
+                value={password}
             />
-            <Button theme={ButtonTheme.OUTLINE} className={cls.loginBtn}>
+            <Button onClick={onLoginClick} theme={ButtonTheme.OUTLINE} className={cls.loginBtn}>
                 {t('Войти')}
             </Button>
         </div>
