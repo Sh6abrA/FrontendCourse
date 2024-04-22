@@ -4,6 +4,7 @@
   "Язык": "English",
   "Toggle": "Toggle",
   "Страница не найдена": "Page not found",
-  "Яз": "Eng"
-
+  "Яз": "Eng",
+  "Вы ввели неверный логин или пароль": "Incorrect Password or login",
+  "Форма авторизации": "Auth form"
 }
