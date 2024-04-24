@@ -39,7 +39,8 @@ module.exports = {
         "react-hooks"
     ],
     "rules": {
-        "no-unused-vars": [1],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
         "react/react-in-jsx-scope": "off",
         "react/no-deprecated": "off",
         "@typescript-eslint/ban-ts-comment": "off",

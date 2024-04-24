@@ -39,10 +39,6 @@ export const Navbar = () => {
                 >
                     {t("Выйти")}
                 </Button>
-                <LoginModal
-                    isOpen={isAuthModal}
-                    onClose={onClose}
-                />
             </div>
         )
     }
@@ -56,10 +52,10 @@ export const Navbar = () => {
             >
                 {t("Войти")}
             </Button>
-            <LoginModal
+            {isAuthModal && <LoginModal
                 isOpen={isAuthModal}
                 onClose={onClose}
-            />
+            />}
         </div>
     );
 }

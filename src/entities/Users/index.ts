@@ -6,5 +6,5 @@ export {
     userActions,
     User,
     UserSchema,
-    getUserAuthData
+    getUserAuthData,
 }
