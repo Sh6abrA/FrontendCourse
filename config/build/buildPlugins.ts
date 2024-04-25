@@ -18,12 +18,12 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
         }),
         new ReactRefreshWebpackPlugin({overlay: false}),
     ];
-    plugins.push(new BundleAnalyzerPlugin({
-        openAnalyzer: false
-    }))
+    
     if(isDev) {
-        plugins.push(new HotModuleReplacementPlugin())
-
+        plugins.push(new HotModuleReplacementPlugin());
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false
+        }))
     }
     
     return plugins
