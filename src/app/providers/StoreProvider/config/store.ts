@@ -8,7 +8,7 @@ export function createReduxStore(initialState?: StateSchema) {
 
     const rootReducer: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
-        user: userReducer
+        user: userReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
@@ -23,4 +23,5 @@ export function createReduxStore(initialState?: StateSchema) {
 
     return store;
 }
-    
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

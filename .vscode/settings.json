@@ -4,5 +4,8 @@
         "src/shared/config/i18n",
         "../../../../../Users/Sh6abrA/Desktop/Course lessons/extractedTranslations"
     ],
-    "i18n-ally.keystyle": "flat"
+    "i18n-ally.keystyle": "flat",
+    "cSpell.words": [
+        "Профиль"
+    ]
 }
