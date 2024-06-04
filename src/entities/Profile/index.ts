@@ -1,4 +1,7 @@
 import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
+import { getProfileData } from 'entities/Profile/model/selector/getProfileData';
+import { getProfileError } from './model/selector/getProfileError';
+import { getProfileIsLoading } from './model/selector/getProfileIsLoading';
 export {
     Profile,
     ProfileSchema
@@ -15,4 +18,9 @@ export {
 
 export {
     ProfileCard
+}
+export{
+    getProfileData,
+    getProfileIsLoading,
+    getProfileError
 }

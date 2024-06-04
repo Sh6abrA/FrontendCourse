@@ -38,7 +38,7 @@ export const Button = memo ((props: ButtonProps) => {
         ...otherProps
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Record<string, boolean | undefined> = {
         [classes[theme]]: true,
         [classes.square]: square,
         [classes[size]]: true,
