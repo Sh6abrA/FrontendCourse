@@ -1,7 +1,8 @@
-import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
-import { getProfileData } from 'entities/Profile/model/selector/getProfileData';
+import { ProfileCard } from './ui/ProfileCard/ProfileCard';
+import { getProfileData } from './model/selector/getProfileData';
 import { getProfileError } from './model/selector/getProfileError';
 import { getProfileIsLoading } from './model/selector/getProfileIsLoading';
+import { getProfileReadOnly } from './model/selector/getProfileReadonly';
 export {
     Profile,
     ProfileSchema
@@ -22,5 +23,6 @@ export {
 export{
     getProfileData,
     getProfileIsLoading,
-    getProfileError
+    getProfileError,
+    getProfileReadOnly
 }
