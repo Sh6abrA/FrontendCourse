@@ -3,6 +3,8 @@ import { getProfileData } from './model/selector/getProfileData';
 import { getProfileError } from './model/selector/getProfileError';
 import { getProfileIsLoading } from './model/selector/getProfileIsLoading';
 import { getProfileReadOnly } from './model/selector/getProfileReadonly';
+import { getProfileForm } from 'entities/Profile/model/selector/getProfileForm';
+import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
 export {
     Profile,
     ProfileSchema
@@ -16,7 +18,9 @@ export {
 export {
     fetchProfileData
 } from './model/services/fetchProfileData'
-
+export {
+    updateProfileData
+}
 export {
     ProfileCard
 }
@@ -24,5 +28,6 @@ export{
     getProfileData,
     getProfileIsLoading,
     getProfileError,
-    getProfileReadOnly
+    getProfileReadOnly,
+    getProfileForm
 }
