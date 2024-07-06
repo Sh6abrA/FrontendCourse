@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData, getProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadOnly, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
+import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadOnly, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -38,7 +38,12 @@ const ProflePage = ({ className }: ProflePageProps) => {
     const onChangeCity = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ city: value || '' }))
     }, [dispatch])
-
+    const onChangeAvatar = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ avatar: value || '' }))
+    }, [dispatch])
+    const onChangeUsername = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ username: value || '' }))
+    }, [dispatch])
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
@@ -48,6 +53,8 @@ const ProflePage = ({ className }: ProflePageProps) => {
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity} 
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeUsername={onChangeUsername}
                     readonly={readonly}
                     data={data}
                     isLoading={isLoading}
