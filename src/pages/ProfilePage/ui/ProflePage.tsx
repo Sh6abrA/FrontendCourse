@@ -6,6 +6,7 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { Currency } from 'entities/Currency';
 
 interface ProflePageProps {
     className?: string
@@ -44,6 +45,9 @@ const ProflePage = ({ className }: ProflePageProps) => {
     const onChangeUsername = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ username: value || '' }))
     }, [dispatch])
+    const onChangeCurrency = useCallback((currency: Currency) => {
+        dispatch(profileActions.updateProfile({ currency }))
+    }, [dispatch])
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
@@ -55,6 +59,7 @@ const ProflePage = ({ className }: ProflePageProps) => {
                     onChangeCity={onChangeCity} 
                     onChangeAvatar={onChangeAvatar}
                     onChangeUsername={onChangeUsername}
+                    onChangeCurrency={onChangeCurrency}
                     readonly={readonly}
                     data={data}
                     isLoading={isLoading}

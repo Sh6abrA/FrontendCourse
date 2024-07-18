@@ -6,6 +6,10 @@ import { Input } from 'shared/ui/Input/Input';
 import { Profile } from '../../model/types/profile';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Select } from 'shared/ui/Select/Select';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country } from 'shared/const/common';
+
 interface ProfileCardProps {
     className?: string;
     data?: Profile;
@@ -18,6 +22,8 @@ interface ProfileCardProps {
     onChangeCity?: (value: string) => void;
     onChangeUsername?: (value: string) => void;
     onChangeAvatar?: (value: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -32,7 +38,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeAge,
         onChangeCity,
         onChangeUsername,
-        onChangeAvatar
+        onChangeAvatar,
+        onChangeCurrency,
+        onChangeCountry
     } = props;
     const { t } = useTranslation('profile');
     if (isLoading) {
@@ -102,6 +110,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeAvatar}
+                />
+                <CurrencySelect
+                    className={cls.input}
+                    value={data?.currency}
+                    onChange={onChangeCurrency}
+                    readonly={readonly}
                 />
             </div>
 
