@@ -5,6 +5,8 @@ import { getProfileIsLoading } from './model/selector/getProfileIsLoading';
 import { getProfileReadOnly } from './model/selector/getProfileReadonly';
 import { getProfileForm } from 'entities/Profile/model/selector/getProfileForm';
 import { updateProfileData } from 'entities/Profile/model/services/updateProfileData';
+import { getProfileValidateError } from 'entities/Profile/model/selector/getProfileValidateError';
+export { getProfileValidateError }
 export {
     Profile,
     ProfileSchema
@@ -24,7 +26,7 @@ export {
 export {
     ProfileCard
 }
-export{
+export {
     getProfileData,
     getProfileIsLoading,
     getProfileError,

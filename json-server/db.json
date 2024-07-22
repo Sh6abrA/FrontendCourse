@@ -27,9 +27,9 @@
   ],
   "profile": {
     "first": "Sh6abrA",
-    "lastname": "Legendaasdasd",
-    "age": 123,
-    "currency": "EUR",
+    "lastname": "",
+    "age": 0,
+    "currency": "USD",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",

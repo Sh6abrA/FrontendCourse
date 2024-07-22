@@ -1,13 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadOnly, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
+import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadOnly, getProfileValidateError, profileActions, ProfileCard, profileReducer } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
-
+import { TextTheme } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 interface ProflePageProps {
     className?: string
 }
@@ -22,6 +23,7 @@ const ProflePage = ({ className }: ProflePageProps) => {
     const isLoading = useSelector(getProfileIsLoading)
     const error = useSelector(getProfileError)
     const readonly = useSelector(getProfileReadOnly)
+    const validateErrors = useSelector(getProfileValidateError)
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -52,11 +54,15 @@ const ProflePage = ({ className }: ProflePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length && validateErrors.map((err) => (
+                        <Text theme={TextTheme.ERROR} text={t(err)} key={err} />
+                    ))
+                }
                 <ProfileCard
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity} 
+                    onChangeCity={onChangeCity}
                     onChangeAvatar={onChangeAvatar}
                     onChangeUsername={onChangeUsername}
                     onChangeCurrency={onChangeCurrency}
