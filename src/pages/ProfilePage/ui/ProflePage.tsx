@@ -9,6 +9,7 @@ import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { TextTheme } from 'shared/ui/Text/Text';
 import { Text } from 'shared/ui/Text/Text';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 interface ProflePageProps {
     className?: string
 }
@@ -24,6 +25,14 @@ const ProflePage = ({ className }: ProflePageProps) => {
     const error = useSelector(getProfileError)
     const readonly = useSelector(getProfileReadOnly)
     const validateErrors = useSelector(getProfileValidateError)
+
+    const validateTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Недопустимый возраст'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Недопустимый город'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны')
+    }
     const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -55,7 +64,7 @@ const ProflePage = ({ className }: ProflePageProps) => {
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
                 {validateErrors?.length && validateErrors.map((err) => (
-                        <Text theme={TextTheme.ERROR} text={t(err)} key={err} />
+                        <Text theme={TextTheme.ERROR} text={t(validateTranslates[err])} key={err} />
                     ))
                 }
                 <ProfileCard
